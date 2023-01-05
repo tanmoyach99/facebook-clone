@@ -24,15 +24,7 @@ app.use(express.json());
 app.use(cors());
 const { readdirSync } = require("fs");
 
-// app.get("/", (req, res) => {
-//   res.send("welcome from facebook");
-// });
-
-// app.get("/profile", (req, res) => {
-//   res.send("welcome from facebook profile");
-// });
-// app.use("/api", userRouter);
-
+//all routes map
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
 
 const URI = process.env.DATABASE_URL;
