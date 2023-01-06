@@ -14,7 +14,7 @@ exports.sendVerificationMail = (email, name, url) => {
     refresh_token: REFRESH_TOKEN,
   });
   const accessToken = auth.getAccessToken();
-  const stmp = nodemailer.createTransport({
+  const smtp = nodemailer.createTransport({
     service: "gmail",
     auth: {
       type: "OAuth2",
@@ -31,7 +31,7 @@ exports.sendVerificationMail = (email, name, url) => {
     subject: "Facebook email verification",
     html: ``,
   };
-  stmp.sendMail(mailOptions, (err, res) => {
+  smtp.sendMail(mailOptions, (err, res) => {
     if (err) return err;
     return res;
   });
