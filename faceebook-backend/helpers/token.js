@@ -5,3 +5,4 @@ exports.generateToken = (credentials, expires) => {
     expiresIn: expires,
   });
 };
+
